@@ -1,0 +1,14 @@
+Package: PhiMRF
+Type: Package
+Title: Poisson Hierarchical Markov Random Field Models for Count Data
+Version: 0.1.0
+Authors@R: person("Naihui", "Zhou", email = "ashley.n.zhou@gmail.com",role = c("aut", "cre"))
+Description: A package to model count data observed on regular or irregular spatial lattice with a Poisson-lognormal mixture of Markov Random Field model.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    Matrix,
+    igraph
+SystemRequirements: GNU make
+RoxygenNote: 6.1.1

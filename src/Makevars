@@ -1,0 +1,2 @@
+PKG_LIBS=-lm -ldl -lRmath -lR -llapacke 
+CPPFLAGS=-fopenmp -DOPENMP
