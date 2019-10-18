@@ -1,3 +1,9 @@
+/**
+ * @file sparse.c
+ * sparse matrix related operations
+ * @author Naihui Zhou {nzhou@iastate.edu}
+ **/
+
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -64,4 +70,49 @@ void sparse_get_dense(struct sparse M, double **output_mat)
 		sparse_get_row(M, output_mat[i], i);	
 	}
 }
+
+/**
+ * get back the dense matrix from the sparse format
+ * @output_mat should be a single pointer, collapsed by row;
+ **/
+void sparse_get_dense_byrow(struct sparse M, double *output_mat)
+{
+	for (int i = 0; i< M.dim; ++i)
+	{
+		sparse_get_row(M, output_mat+i*M.dim, i);	
+	}
+}
+/**
+ * get the row/column index of the k^th non-zero value
+ **/
+void sparse_get_index(struct sparse M, int k, int *out_index)
+{
+	int out;
+	for (int j = 0; j< M.dim; ++j)
+	{
+		if (M.col_ptr[j]<=k && M.col_ptr[j+1]>k) 
+		{
+			out = j;
+			break;
+		}
+	}
+	out_index[0] = M.row_ind[k];
+	out_index[1] = out;
+}
+
+/**
+ * get the rowsum of the matrix by only adding the nonzero values
+ **/
+void sparse_get_row_sum(struct sparse M, double *out_row_sums)
+{
+	for (int k = 0; k<M.dim; ++k)
+	{
+		out_row_sums[k] = 0;
+		for (int i = 0; i< M.nnz; ++i)
+		{
+			if (M.row_ind[i]==k) out_row_sums[k] += M.val[i];
+		}
+	}
+}
+
 

@@ -7,7 +7,7 @@
 get_jump_frequency(ret, Ti, N)
 }
 \arguments{
-\item{ret}{returned list from MCMC}
+\item{ret}{returned list from \code{pmrf()}}
 
 \item{Ti}{number of total iterations}
 

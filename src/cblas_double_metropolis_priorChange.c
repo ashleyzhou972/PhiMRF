@@ -1,6 +1,6 @@
 /**
- * @file double_metropolis.c
- * Initial attempt at the double metropolis algorithm
+ * @file cblas_double_metropolis_priorChange.c
+ * The double metropolis algorithm for alpha, eta and tau2
  * @author Naihui Zhou {nzhou@iastate.edu}
  **/
 

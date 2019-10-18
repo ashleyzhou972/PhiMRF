@@ -7,7 +7,7 @@
 delete_burn_in(ret, burn_in)
 }
 \arguments{
-\item{ret}{returned list from MCMC}
+\item{ret}{returned list from \code{pmrf()}}
 
 \item{burn_in}{number of iterations to throw away}
 

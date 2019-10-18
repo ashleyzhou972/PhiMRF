@@ -1,12 +1,12 @@
 ##################################
 #Post MCMC analysis
 #Functions to print parameter estimates
-#updated 20191016
+#updated 20191018
 ##################################
 
 #' Percentage of jumps in MCMC iterations
 #'
-#' @param ret returned list from MCMC
+#' @param ret returned list from \code{pmrf()}
 #' @param Ti number of total iterations
 #' @param N datasize
 #' @return A list with jump percentages for \code{w}, \code{alpha}, \code{eta} and \code{tau2}
@@ -31,7 +31,7 @@ get_jump_frequency<-function(ret, Ti, N){
 
 #' Delete burn in iterations in MCMC
 #'
-#' @param ret returned list from MCMC
+#' @param ret returned list from \code{pmrf()}
 #' @param burn_in number of iterations to throw away
 #' @param N datasize
 #' @return A list with MCMC iterations after burn in for \code{w}, \code{alpha}, \code{eta} and \code{tau2}
@@ -56,7 +56,7 @@ delete_burn_in <-function(ret, burn_in){
 #'
 #' It is STRONGLY recommended that you output the estimates after throwing away burn-in iterations.
 #'
-#' @param ret returned list from MCMC
+#' @param ret returned list from \code{pmrf()}
 #' @param burn_in number of iterations to throw away. Default 200.
 #' @param digit number of digits after the decimal point to display. Default 3.
 #' @examples

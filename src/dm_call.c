@@ -1,3 +1,8 @@
+/**
+ * @file dm_call.c
+ * C interface with R's .Call() for PhiMRF
+ * @author Naihui Zhou {nzhou@iastate.edu}
+ **/
 #include <R.h>
 #include <Rinternals.h>
 #include <R_ext/Utils.h>
@@ -12,6 +17,12 @@
 #include "sparse.h"
 #include "eigen.h"
 
+
+/*
+ * Main double MH algorithm for PhiMRF
+ * Naihui Zhou
+ * Updated 20191018
+*/
 void allocate_column(double *w, double **w_bycol, int N, int T);
 void initialize_from_input(double *w_in, double alpha0, double eta0,
 		double tau20, double *w, double *alpha, double *eta,

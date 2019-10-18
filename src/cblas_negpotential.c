@@ -1,3 +1,9 @@
+/**
+ * @file cblas_negpotential.c
+ * Compute the negpotential function for the marginal distribution of w
+ * @author Naihui Zhou {nzhou@iastate.edu}
+ **/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>

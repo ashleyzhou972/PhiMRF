@@ -1,3 +1,8 @@
+/**
+ * @file ms_regular_metropolis.c
+ * Regular Metropolis-Hastings algorithm for w
+ * @author Naihui Zhou {nzhou@iastate.edu}
+ **/
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>

@@ -7,7 +7,7 @@
 print_param_estimates(ret, burn_in = 200, digit = 3)
 }
 \arguments{
-\item{ret}{returned list from MCMC}
+\item{ret}{returned list from \code{pmrf()}}
 
 \item{burn_in}{number of iterations to throw away. Default 200.}
 

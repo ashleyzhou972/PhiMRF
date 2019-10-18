@@ -35,11 +35,11 @@
 #' pmrf(2000, nrow(y), y, adj_mat, c(0.5,0.5,NA,1), c(-2,2), inis = c(0,0,0), wInis = rnorm(nrow(y), 0, 1))
 #'
 #' @details The adjacency matrix \code{adj_mat} needs to be transformed by dividing each nonzero element (default is \code{1}) by the sum of the row sum and column sum.
-#' See  and  for  ways to transform.
+#' See ? and ? for  ways to transform.
 #'
 #' The parameter space of \code{eta} is defined as the reciprocal of the maximum and minimum of the eigenvalues of the (transformed) adjacency matrix.
 #' (i.e. \code{c(1/min(eigen(adj_mat)$values), 1/max(eigen(adj_mat)$values))})
-#' See and for ways to compute.
+#' See ? and ? for ways to compute.
 #'
 #' The \code{vars} argument supplies the variance used in the random walk proposal.
 #' In general, the larger the variance, the smaller the jump frequency.
@@ -54,7 +54,7 @@
 #'
 #' @author Naihui Zhou (ashley.n.zhou@gmail.com)
 #' @references
-#' Zhou, N., Friedberg, I. & Kaiser, M.S. (2019).  ""
+#' Zhou, N., Friedberg, I. & Kaiser, M.S. (2019).  "?"
 #'
 #' Liang, F. (2010). A double Metropolis–Hastings sampler for spatial models with intractable normalizing constants. \emph{Journal of Statistical Computation and Simulation}, 80(9), 1007-1022.
 #'

@@ -1,3 +1,9 @@
+/**
+ * @file eigen.c
+ * Using lapacke to compute eigenvalues for matrices
+ * @author Naihui Zhou {nzhou@iastate.edu}
+ **/
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -30,7 +36,7 @@ void get_max_min_eigenvalues(int dim, double *M_1d, double *out)
 	lda = dim;
 	ldz = dim;
 	double *a;
-	printf("Begin copying matrix\n");
+	//printf("Begin copying matrix\n");
 	a = malloc(dim*dim*sizeof(double));
         if (a==NULL)
 	{
@@ -48,9 +54,9 @@ void get_max_min_eigenvalues(int dim, double *M_1d, double *out)
 	}
 	**/
 	memcpy(a, M_1d, dim*dim);
-	printf("Done copying matrix\n");
+	//printf("Done copying matrix\n");
 	//for (int k = 0; k<dim*dim; ++k) printf("%g ", a[k]);
-	printf("beginning lapacke_dsyevx...\n");
+	//printf("beginning lapacke_dsyevx...\n");
 	info = LAPACKE_dsyevx( layout, jobz, range, uplo, n, a, lda, vl, vu, il, iu, abstol, &m, w, z, ldz, ifail);
 	if (info!=0) {
 		fprintf(stderr, "[ERROR] Failed to calcuate eigenvalues using dsyevs\n");
@@ -60,8 +66,8 @@ void get_max_min_eigenvalues(int dim, double *M_1d, double *out)
 	//printf("\n");
 	out[0] = w[0];
 	out[1] = w[dim-1];
-	printf("lowest eigen value is %g.\n", out[0]);
-	printf("highest eigen value is %g.\n", out[1]);
+	//printf("lowest eigen value is %g.\n", out[0]);
+	//printf("highest eigen value is %g.\n", out[1]);
 	free(a);
 	free(w);
 	//exit(0);
