@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <math.h>
 #define MATHLIB_STANDALONE
-#include "Rmath.h"
+#include <Rmath.h>
 #include "cblas_negpotential.h"
 #include "ms_regular_metropolis.h"
 #include "cblas_double_metropolis.h"
