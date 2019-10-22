@@ -14,7 +14,8 @@ print_param_estimates(ret, burn_in = 200, digit = 3)
 \item{digit}{number of digits after the decimal point to display. Default 3.}
 }
 \description{
-Parameter estimates include mean and 95\% credible interval.
+Parameter estimates include mean and 95\% credible interval,
+in the order of \code{eta}, \code{alpha} and \code{tau2}
 }
 \details{
 It is STRONGLY recommended that you output the estimates after throwing away burn-in iterations.

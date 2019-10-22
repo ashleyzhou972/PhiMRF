@@ -62,7 +62,8 @@ delete_burn_in <-function(ret, burn_in){
 
 #' Print parameter estimates to console
 #'
-#' Parameter estimates include mean and 95\% credible interval.
+#' Parameter estimates include mean and 95\% credible interval,
+#' in the order of \code{eta}, \code{alpha} and \code{tau2}
 #'
 #' It is STRONGLY recommended that you output the estimates after throwing away burn-in iterations.
 #'
@@ -82,11 +83,11 @@ delete_burn_in <-function(ret, burn_in){
 #' @export
 print_param_estimates<-function(ret, burn_in = 200, digit = 3){
   newret = delete_burn_in(ret, burn_in)
-  alpha_percentile = quantile(newret$alpha, probs=c(0.025, 0.975))
-  cat(paste(round(mean(newret$alpha),digit), " (", round(alpha_percentile[1],digit), ", ", round(alpha_percentile[2],digit), ") ", sep=""))
-  cat("\n")
   eta_percentile = quantile(newret$eta, probs=c(0.025, 0.975))
   cat(paste(round(mean(newret$eta),digit), " (", round(eta_percentile[1],digit), ", ", round(eta_percentile[2],digit), ") ", sep=""))
+  cat("\n")
+  alpha_percentile = quantile(newret$alpha, probs=c(0.025, 0.975))
+  cat(paste(round(mean(newret$alpha),digit), " (", round(alpha_percentile[1],digit), ", ", round(alpha_percentile[2],digit), ") ", sep=""))
   cat("\n")
   tau2_percentile = quantile(newret$tau2, probs=c(0.025, 0.975))
   cat(paste(round(mean(newret$tau2),digit), " (", round(tau2_percentile[1],digit), ", ", round(tau2_percentile[2],digit), ") ", sep=""))
