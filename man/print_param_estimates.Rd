@@ -20,7 +20,12 @@ Parameter estimates include mean and 95\% credible interval.
 It is STRONGLY recommended that you output the estimates after throwing away burn-in iterations.
 }
 \examples{
-print_param_estimates(ret, 500, 4)
+adj_trans = transform_small(irregular_lattice)
+n = dim(irregular_lattice)[1]
+y = simulate_y(n = n, adj_mat = adj_trans, alpha = 2, eta = 2, tau2 = 3, m = 2, M = 2000)
+bounds_e = get_eta_param_space_small(adj_trans)
+ret = pmrf(total_iter = 1000, N = n , y, adj_trans, c(1, 0.5, NA, 2), bounds_e)
+print_param_estimates(ret, 300, 4)
 print_param_estimates(ret, 0, 2)
 }
 \author{

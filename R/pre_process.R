@@ -1,9 +1,9 @@
 ##################################
-#Preprocess to the MCMC analysis
-#Functions to transform adjacency matrices and
-#calculate max and min eigen values
-#updated 20191018
-
+# Preprocess to the MCMC analysis
+# Functions to transform adjacency matrices and
+# calculate max and min eigen values
+# Naihui Zhou (ashley.n.zhou@gmail.com)
+# Last Updated 20191018
 ##################################
 
 #' Transform adjacency matrix by dividing sum of row sum and column sum

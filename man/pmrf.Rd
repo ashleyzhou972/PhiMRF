@@ -46,11 +46,11 @@ See References for detailed model specification.
 }
 \details{
 The adjacency matrix \code{adj_mat} needs to be transformed by dividing each nonzero element (default is \code{1}) by the sum of the row sum and column sum.
-See ? and ? for  ways to transform.
+See \code{transform_small()} and \code{preprocess_big()} for  ways to transform.
 
 The parameter space of \code{eta} is defined as the reciprocal of the maximum and minimum of the eigenvalues of the (transformed) adjacency matrix.
 (i.e. \code{c(1/min(eigen(adj_mat)$values), 1/max(eigen(adj_mat)$values))})
-See ? and ? for ways to compute.
+See \code{get_eta_param_space_small()} and \code{preprocess_big()} for ways to compute.
 
 The \code{vars} argument supplies the variance used in the random walk proposal.
 In general, the larger the variance, the smaller the jump frequency.
@@ -64,8 +64,12 @@ and the prior distribution for \code{tau2} is derived using change-of-variables.
 You can supply the inital values using the last iteration of a previous MCMC run to continue to process.
 }
 \examples{
-pmrf(5000, nrow(y), y, adj_mat, c(0.5,0.5,NA,1), c(-2,2))
-pmrf(2000, nrow(y), y, adj_mat, c(0.5,0.5,NA,1), c(-2,2), inis = c(0,0,0), wInis = rnorm(nrow(y), 0, 1))
+adj_trans = transform_small(irregular_lattice)
+n = dim(irregular_lattice)[1]
+y = simulate_y(n = n, adj_mat = adj_trans, alpha = 2, eta = 2, tau2 = 3, m = 2, M = 2000)
+bounds_e = get_eta_param_space_small(adj_trans)
+ret = pmrf(total_iter = 5000, N = n , y, adj_trans, c(1, 0.5, NA, 2), bounds_e)
+ret = pmrf(total_iter = 2000, nrow(y), y, adj_mat, c(1.5, 0.5, NA, 1.5), bounds_e, inis = c(0,0,0), wInis = rnorm(nrow(y), 0, 1))
 
 }
 \references{

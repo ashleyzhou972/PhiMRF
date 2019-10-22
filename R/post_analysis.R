@@ -1,7 +1,8 @@
 ##################################
-#Post MCMC analysis
-#Functions to print parameter estimates
-#updated 20191018
+# Post MCMC analysis
+# Functions to print parameter estimates
+# Naihui Zhou (ashley.n.zhou@gmail.com)
+# Last updated 20191021
 ##################################
 
 #' Percentage of jumps in MCMC iterations
@@ -11,7 +12,12 @@
 #' @param N datasize
 #' @return A list with jump percentages for \code{w}, \code{alpha}, \code{eta} and \code{tau2}
 #' @examples
-#' get_jump_frequency(ret, 10000, 200)
+#' adj_trans = transform_small(irregular_lattice)
+#' n = dim(irregular_lattice)[1]
+#' y = simulate_y(n = n, adj_mat = adj_trans, alpha = 2, eta = 2, tau2 = 3, m = 2, M = 2000)
+#' bounds_e = get_eta_param_space_small(adj_trans)
+#' ret = pmrf(total_iter = 1000, N = n , y, adj_trans, c(1, 0.5, NA, 2), bounds_e)
+#' get_jump_frequency(ret, 1000, n)
 #' @author Naihui Zhou (ashley.n.zhou@gmail.com)
 #'
 #' @export
@@ -33,10 +39,14 @@ get_jump_frequency<-function(ret, Ti, N){
 #'
 #' @param ret returned list from \code{pmrf()}
 #' @param burn_in number of iterations to throw away
-#' @param N datasize
 #' @return A list with MCMC iterations after burn in for \code{w}, \code{alpha}, \code{eta} and \code{tau2}
 #' @examples
-#' delete_burn_in(ret, 400)
+#' adj_trans = transform_small(irregular_lattice)
+#' n = dim(irregular_lattice)[1]
+#' y = simulate_y(n = n, adj_mat = adj_trans, alpha = 2, eta = 2, tau2 = 3, m = 2, M = 2000)
+#' bounds_e = get_eta_param_space_small(adj_trans)
+#' ret = pmrf(total_iter = 1000, N = n , y, adj_trans, c(1, 0.5, NA, 2), bounds_e)
+#' newret = delete_burn_in(ret, 200)
 #' @author Naihui Zhou (ashley.n.zhou@gmail.com)
 #'
 #'
@@ -60,7 +70,12 @@ delete_burn_in <-function(ret, burn_in){
 #' @param burn_in number of iterations to throw away. Default 200.
 #' @param digit number of digits after the decimal point to display. Default 3.
 #' @examples
-#' print_param_estimates(ret, 500, 4)
+#' adj_trans = transform_small(irregular_lattice)
+#' n = dim(irregular_lattice)[1]
+#' y = simulate_y(n = n, adj_mat = adj_trans, alpha = 2, eta = 2, tau2 = 3, m = 2, M = 2000)
+#' bounds_e = get_eta_param_space_small(adj_trans)
+#' ret = pmrf(total_iter = 1000, N = n , y, adj_trans, c(1, 0.5, NA, 2), bounds_e)
+#' print_param_estimates(ret, 300, 4)
 #' print_param_estimates(ret, 0, 2)
 #' @author Naihui Zhou (ashley.n.zhou@gmail.com)
 #'
