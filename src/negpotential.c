@@ -11,8 +11,8 @@
 #include <Rmath.h>
 #include <omp.h>
 #include <cblas.h>
-
-#include "cblas_negpotential.h"
+#include "nmath.h"
+#include "PhiMRF.h"
 
 /**
  * @file negpotential.c

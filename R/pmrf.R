@@ -36,8 +36,9 @@
 #' n = dim(irregular_lattice)[1]
 #' y = simulate_y(n = n, adj_mat = adj_trans, alpha = 2, eta = 2, tau2 = 3, m = 2, M = 2000)
 #' bounds_e = get_eta_param_space_small(adj_trans)
-#' ret = pmrf(total_iter = 5000, N = n , y, adj_trans, c(1, 0.5, NA, 2), bounds_e)
-#' ret = pmrf(total_iter = 2000, nrow(y), y, adj_mat, c(1.5, 0.5, NA, 1.5), bounds_e, inis = c(0,0,0), wInis = rnorm(nrow(y), 0, 1))
+#' ret = pmrf(total_iter = 2000, N = n , y, adj_trans, c(1, 0.5, NA, 2), bounds_e)
+#' ret = pmrf(total_iter = 1000, nrow(y), y, adj_trans, c(1.5, 0.5, NA, 1.5),
+#' bounds_e, inis = c(0,0,0), wInis = rnorm(nrow(y), 0, 1))
 #'
 #' @details The adjacency matrix \code{adj_mat} needs to be transformed by dividing each nonzero element (default is \code{1}) by the sum of the row sum and column sum.
 #' See \code{transform_small()} and \code{preprocess_big()} for  ways to transform.

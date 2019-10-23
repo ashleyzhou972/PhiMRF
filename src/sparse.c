@@ -6,6 +6,8 @@
 
 #include<stdio.h>
 #include<stdlib.h>
+#include<R.h>
+#include<Rinternals.h>
 
 
 /**
@@ -38,8 +40,7 @@ void sparse_get_row(struct sparse M, double *output_row, int row_index)
 	//iterate through each row_ind, if found  	
 	if (row_index >= M.dim) 
 	{
-		fprintf(stderr, "[ERROR] desired row index is out of bounds\n");
-		abort();
+		error("[ERROR] desired row index is out of bounds\n");
 	}
 	for (int i = 0; i<M.dim;++i) output_row[i] = 0;
 	for (int i = 0; i<M.nnz; ++i)

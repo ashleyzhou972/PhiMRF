@@ -1,2 +1,3 @@
-PKG_LIBS=-lm -ldl -lR -lRmath -llapacke 
-PKG_CPPFLAGS=-fopenmp -DOPENMP -I../inst/include
+PKG_LIBS=-lm -ldl -llapacke -lRmath
+PKG_CFLAGS=-DOPENMP
+PKG_CPPFLAGS=-fopenmp -I../inst/include

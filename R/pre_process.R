@@ -43,7 +43,7 @@ transform_small<-function(adj_mat){
 #' @return A vector of the lower and upper bounds for eta
 #' @examples
 #' mat = matrix(c(1,1,0,1,1,0,0,0,1), nrow = 3)
-#' get_eta_param_space(mat)
+#' get_eta_param_space_small(mat)
 #' @author Naihui Zhou (ashley.n.zhou@gmail.com)
 #'
 #' @export

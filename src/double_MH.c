@@ -9,9 +9,8 @@
 #include <math.h>
 #define MATHLIB_STANDALONE
 #include <Rmath.h>
-#include "cblas_negpotential.h"
-#include "ms_regular_metropolis.h"
-#include "cblas_double_metropolis.h"
+#include "nmath.h"
+#include "PhiMRF.h"
 
 
 double dm_step1(double theta0, pdf target, double var, double *target_params, double *bounds_theta)
@@ -295,7 +294,7 @@ double prior_tau2(double tau2_par, double *other_par)
 		pdf = -1.0/0.0; //make it negative infinity;
 	}
 	else {
-		pdf = -log(2)-log(tau2_par)/2+dunif(sqrt(tau2_par), lb, ub, 1);
+		pdf = -log(2)-log(tau2_par)/2 + dunif(sqrt(tau2_par), lb, ub, 1);
 	}
 	return pdf;
 }

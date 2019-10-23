@@ -11,11 +11,8 @@
 #include <math.h>
 #define MATHLIB_STANDALONE
 #include <Rmath.h>
-#include "cblas_double_metropolis.h"
-#include "ms_regular_metropolis.h"
-#include "cblas_negpotential.h"
-#include "sparse.h"
-#include "eigen.h"
+#include "nmath.h"
+#include "PhiMRF.h"
 
 
 /*
@@ -117,7 +114,7 @@ SEXP double_metropolis_cont(SEXP T_in, SEXP N_in, SEXP y_in, SEXP dim_in, SEXP v
 	double *neighbor_1d;
 	neighbor_1d = malloc(N*N*sizeof(double));
 	if (neighbor_1d ==NULL) {
-		fprintf(stderr, "[ERROR] Failed to allocate memory for neighbor_1d\n");
+		error("[ERROR] Failed to allocate memory for neighbor_1d\n");
 	}
 	for (int i = 0; i < N; ++i) {
 		for (int j = 0; j < N; ++j)  {
@@ -289,7 +286,7 @@ SEXP double_metropolis_cont(SEXP T_in, SEXP N_in, SEXP y_in, SEXP dim_in, SEXP v
 	jc[3] = jc_tau2;
 	SET_VECTOR_ELT(R_Return_List, 4, R_jc);
 	//end;
-	Rprintf("num protected: %d\n", num_protected);
+	//Rprintf("num protected: %d\n", num_protected);
 	UNPROTECT(num_protected);
 	PutRNGstate();
 	for (int i = 0; i< N; ++i) free(neighbor_2d[i]);

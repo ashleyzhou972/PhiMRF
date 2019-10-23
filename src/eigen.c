@@ -7,7 +7,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "lapacke.h"
+#include <Rinternals.h>
+#include <lapacke.h>
 
 void get_max_min_eigenvalues(int dim, double *M_1d, double *out)
 {
@@ -20,8 +21,7 @@ void get_max_min_eigenvalues(int dim, double *M_1d, double *out)
 	lapack_int ifail[2];
 	w = malloc(dim*sizeof(double));
 	if (w==NULL) {
-		fprintf(stderr, "[ERROR] Failed to allocated memory for eigenvalues in dsyevx\n");
-		exit(1);
+		error("[ERROR] Failed to allocated memory for eigenvalues in dsyevx\n");
 	}
 	il = 1;
 	iu = dim;
@@ -40,8 +40,7 @@ void get_max_min_eigenvalues(int dim, double *M_1d, double *out)
 	a = malloc(dim*dim*sizeof(double));
         if (a==NULL)
 	{
-		fprintf(stderr, "[ERROR] Failed to allocated memory for matrix A in dsyevx\n");
-		exit(1);
+		error("[ERROR] Failed to allocated memory for matrix A in dsyevx\n");
 	}
 	/**
 	for (int i = 0; i< dim*dim; ++i)
@@ -59,8 +58,7 @@ void get_max_min_eigenvalues(int dim, double *M_1d, double *out)
 	//printf("beginning lapacke_dsyevx...\n");
 	info = LAPACKE_dsyevx( layout, jobz, range, uplo, n, a, lda, vl, vu, il, iu, abstol, &m, w, z, ldz, ifail);
 	if (info!=0) {
-		fprintf(stderr, "[ERROR] Failed to calcuate eigenvalues using dsyevs\n");
-		exit(1);
+		error("[ERROR] Failed to calcuate eigenvalues using dsyevs\n");
 	}
 	//for (int k = 0; k < dim; ++k) printf("%g ", w[k]);
 	//printf("\n");

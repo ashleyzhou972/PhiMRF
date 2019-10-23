@@ -9,8 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include "sparse.h"
-#include "eigen.h"
+#include "PhiMRF.h"
 
 /**
  * Goal 1: transform matrix by dividing nonzero values by rowsum + colsum
@@ -112,7 +111,7 @@ SEXP preprocess(SEXP dim_in, SEXP val_in, SEXP row_ind_in, SEXP col_ptr_in)
 	double *neighbor_1d;
 	neighbor_1d = malloc(dim_neighbor*dim_neighbor*sizeof(double));
 	if (neighbor_1d ==NULL) {
-		fprintf(stderr, "[ERROR] Failed to allocate memory for neighbor_1d\n");
+		error("[ERROR] Failed to allocate memory for neighbor_1d\n");
 	}
 	for (int i = 0; i < dim_neighbor; ++i) {
 		for (int j = 0; j < dim_neighbor; ++j)  {
