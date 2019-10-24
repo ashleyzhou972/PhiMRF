@@ -33,9 +33,9 @@ Here is how to build the Rmath library:
 
    2. Go to your R home directory (`$R_HOME`) and see if the the directory `$R_HOME/src/nmath/standalone/` exits 
 
-    If yes, run `make` in that directory.
+    *If yes, run `make` in that directory.
 
-    If not, [install R from source](https://cran.r-project.org/doc/manuals/r-release/R-admin.html#Top), and then go to the steps above.
+    *If not, [install R from source](https://cran.r-project.org/doc/manuals/r-release/R-admin.html#Top), and then go to the steps above.
 
 
 #### 3. Check if you have the required libraries
