@@ -89,7 +89,7 @@ preprocess_big<-function(adj_mat, savepath){
   }
   att = attributes(adj_mat)
   dim = att$Dim[1]
-  print(is.integer(dim))
+  #print(is.integer(dim))
   val = att$x
   row_ind = att$i
   col_ptr = att$p

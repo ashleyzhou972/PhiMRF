@@ -18,8 +18,9 @@
 #' @param y Observed data at each location. \code{y} should be a matrix with \code{N} rows, and number of columns equal to the number of observations at each location.
 #' @param adj_mat Transformed adjacency matrix for the locations. See Details on how to transform the adjacency matrix.
 #' Must be in the 'dgCMatrix' class. Use \code{as(yourmatrix, 'dgCMatrix')} to convert.
-#' @param vars Variances for the random walk proposal for the MCMC for each parameter,
-#' \code{w}, \code{alpha}, \code{eta} and \code{tau2}.
+#' @param vars A vector of size four. Variances for the random walk proposal for the MCMC for each parameter,
+#' \code{w}, \code{alpha}, \code{eta} and \code{tau2}. Third element (variance for eta) is never used,
+#  because eta follows an independent proposal. See Details.
 #' @param bounds_e Lower and upper bound for \code{eta}. This should be decided by the eigenvalues of the adjacency matrix. See details. No default supplied.
 #' @param bounds_a Lower and upper bound for \code{alpha}. Default \code{c(-10,10)}.
 #' @param bounds_t Lower and upper bound for \code{tau} (Not \code{tau2}, see Details for the prior distributions.)

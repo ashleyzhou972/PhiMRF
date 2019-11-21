@@ -16,7 +16,7 @@ The MCMC process is written in C and takes advantage of BLAS and LAPACK routines
 The package has special functions that handles large matrices that would otherwise crash your R. 
 
 ## Model Description
-See Vignettes.
+See [Vignettes](http://htmlpreview.github.io/?https://github.com/ashleyzhou972/PhiMRF/blob/master/vignettes/Introduction-PhiMRF.html)
 
 ## Getting Started
 ### Prerequisites
