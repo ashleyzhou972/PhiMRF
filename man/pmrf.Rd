@@ -18,8 +18,8 @@ pmrf(total_iter, N, y, adj_mat, vars, bounds_e, bounds_a = c(-10, 10),
 \item{adj_mat}{Transformed adjacency matrix for the locations. See Details on how to transform the adjacency matrix.
 Must be in the 'dgCMatrix' class. Use \code{as(yourmatrix, 'dgCMatrix')} to convert.}
 
-\item{vars}{Variances for the random walk proposal for the MCMC for each parameter,
-\code{w}, \code{alpha}, \code{eta} and \code{tau2}.}
+\item{vars}{A vector of size four. Variances for the random walk proposal for the MCMC for each parameter,
+\code{w}, \code{alpha}, \code{eta} and \code{tau2}. Third element (variance for eta) is never used,}
 
 \item{bounds_e}{Lower and upper bound for \code{eta}. This should be decided by the eigenvalues of the adjacency matrix. See details. No default supplied.}
 
