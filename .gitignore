@@ -8,3 +8,5 @@ src/*.dll
 .Rbuildignore
 *.Rproj
 README.html
+doc
+Meta
