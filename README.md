@@ -1,6 +1,14 @@
 # PhiMRF
 R package for **P**oisson **Hi**erarchical **M**arkov **R**andom **F**ield model for analysis of spatial dependency on count data.
 
+Hierarchical Markov Random Field model captures spatial dependency in gene expression, demonstrating regulation via the 3D genome
+
+Naihui Zhou, Iddo Friedberg, Mark S. Kaiser
+
+bioRxiv 2019.12.16.878371; 
+
+doi: https://doi.org/10.1101/2019.12.16.878371
+
 ## Package Features
 
 #### **Spatial dependency for count data**. 
