@@ -31,9 +31,9 @@ See [Vignettes](http://htmlpreview.github.io/?https://github.com/ashleyzhou972/P
 
 ## Installation
 
-Update: [Docker image](https://github.com/ashleyzhou972/PhiMRF/packages/104838) now available throught Github packages!
+**Update**: [Docker image](https://github.com/ashleyzhou972/PhiMRF/packages/104838) now available through Github packages!
 
-The Docker image has all pre-requisites and the PhiMRF R package already installed and ready to use.
+The Docker image has all prerequisites and the PhiMRF R package already installed and ready to use.
 
 ### Prerequisites
 #### 1. [Lapacke](https://www.netlib.org/lapack/lapacke.html)
