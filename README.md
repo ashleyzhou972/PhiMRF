@@ -29,7 +29,12 @@ The package has special functions that handles large matrices that would otherwi
 ## Model Description
 See [Vignettes](http://htmlpreview.github.io/?https://github.com/ashleyzhou972/PhiMRF/blob/master/vignettes/Introduction-PhiMRF.html)
 
-## Getting Started
+## Installation
+
+Update: [Docker image](https://github.com/ashleyzhou972/PhiMRF/packages/104838) now available throught Github packages!
+
+The Docker image has all pre-requisites and the PhiMRF R package already installed and ready to use.
+
 ### Prerequisites
 #### 1. [Lapacke](https://www.netlib.org/lapack/lapacke.html)
 
@@ -58,8 +63,13 @@ Here is a brief outline:
    * If yes, run `make` in that directory.
 
    * If not, [install R from source](https://cran.r-project.org/doc/manuals/r-release/R-admin.html#Top), and then go to the steps above.
+
+   3. Link the Rmath library to the default path
+```
+ln -s $R_HOME/src/nmath/standalone/libRmath.so  /usr/lib/libRmath.so
+```
     
-Detailed installation instructions can be found [here](https://colinfay.me/r-installation-administration/the-standalone-rmath-library.html) for Linux, MacOS and Windows.
+Detailed installation instructions for Rmath can be found [here](https://colinfay.me/r-installation-administration/the-standalone-rmath-library.html) for Linux, MacOS and Windows.
 
 
 
@@ -72,7 +82,7 @@ ldconfig -p | grep liblapack
 ldconfig -p | grep libblas
 ```
 
-### Installation
+### Installing the package in R
 
 Install the package in R using the [`devtools` package](https://cran.r-project.org/web/packages/devtools/index.html).
 
